@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  echo-service:
+    container_name: echo-service
+    image: service
+    restart: always
+    build: ${SOURCE_CODE_PATH}/service
+    ports:
+      - "8000:8000"
+
+  nginx-server:
+    container_name: nginx-server
+    image: nginx:1.25.5
+    restart: always
+    volumes:
+      - ${INFRA_CONFIG}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${INFRA_CONFIG}/nginx/site.conf:/etc/nginx/conf.d/site.conf:ro
+    ports:
+      - "80:80"

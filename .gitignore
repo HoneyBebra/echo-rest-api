@@ -1,0 +1,17 @@
+# Environments
+.env
+.env.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Vscode project settings
+.vscode
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
