@@ -1,23 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"log"
 	"service/src/api/v1"
+	"service/src/core"
+	"strings"
 )
 
 func run() error {
+	cfg := core.GetConfig()
+
 	e := echo.New()
 
-	e.Use(middleware.Logger())
+	if strings.ToLower(cfg.Debug) == "true" {
+		e.Use(middleware.Logger())
+	}
 
-	api := e.Group("/api/v1")
+	api := e.Group(cfg.ApiPrefix)
 
 	// Test handler
 	api.GET("/", v1.GetHello)
 
-	return e.Start("0.0.0.0:8000")
+	return e.Start(fmt.Sprintf("%s:%s", "0.0.0.0", cfg.Port))
 }
 
 func main() {

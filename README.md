@@ -17,7 +17,9 @@ My golang training. Writing clean rest-api on echo
     cd echo-rest-api
     ```
 
-2. Deploy
+2. Create a .env-files as in deploy/.env.example and service/.env.example
+
+3. Deploy
 
    ```shell
    cd deploy
