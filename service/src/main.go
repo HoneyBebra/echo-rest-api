@@ -18,6 +18,7 @@ func run() error {
 	if strings.ToLower(cfg.Debug) == "true" {
 		e.Use(middleware.Logger())
 	}
+	e.Use(middleware.Recover())
 
 	api := e.Group(cfg.ApiPrefix)
 
