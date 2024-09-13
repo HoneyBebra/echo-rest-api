@@ -26,7 +26,11 @@ My golang training. Writing clean rest-api on echo
    docker-compose up -d
    ```
 
+# Architecture
+
+![GDD][Current-architecture-url]
+
 <!-- MARKDOWN LINKS & BADGES -->
 
 [Nginx-url]: https://nginx.org
-[Nginx-badge]: https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white~~
+[Nginx-badge]: https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white~~[Current-architecture-url]: ./architecture/current_architecture.png

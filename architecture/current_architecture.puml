@@ -1,0 +1,13 @@
+@startuml
+actor User
+component NginxGateway
+
+package "service" {
+component NginxService
+component EchoApp
+}
+
+User -> NginxGateway
+NginxGateway -> NginxService
+NginxService -> EchoApp
+@enduml
