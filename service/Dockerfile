@@ -6,7 +6,7 @@ COPY ./ /go/src/app
 
 WORKDIR /go/src/app/src
 
-RUN go mod download && go build -o /app/app
+RUN cp ../.env .env && go mod download && go build -o /app/app
 
 EXPOSE 8000
 
