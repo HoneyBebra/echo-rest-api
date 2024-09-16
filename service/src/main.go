@@ -1,13 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"log"
+	"net/http"
 	"service/src/api/v1"
 	"service/src/core"
 	"strings"
+	"time"
 )
 
 func run() error {
@@ -25,7 +26,12 @@ func run() error {
 	// Test handler
 	api.GET("/", v1.GetHello)
 
-	return e.Start(fmt.Sprintf("%s:%s", "0.0.0.0", cfg.Port))
+	s := &http.Server{
+		Addr:         cfg.HTTPAddr,
+		ReadTimeout:  time.Duration(cfg.ReadTimeoutMinute) * time.Minute,
+		WriteTimeout: time.Duration(cfg.WriteTimeoutMinute) * time.Minute,
+	}
+	return e.StartServer(s)
 }
 
 func main() {

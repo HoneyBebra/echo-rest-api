@@ -3,15 +3,18 @@ package core
 import (
 	"log"
 	"os"
+	"strconv"
 	"sync"
 
 	"github.com/joho/godotenv"
 )
 
 type Config struct {
-	Debug     string
-	ApiPrefix string
-	Port      string // You also need to change it in the nginx settings
+	Debug              string
+	ApiPrefix          string
+	HTTPAddr           string // You also need to change port in the nginx settings
+	ReadTimeoutMinute  int
+	WriteTimeoutMinute int
 }
 
 // Get config once
@@ -26,10 +29,21 @@ func GetConfig() *Config {
 		if err != nil {
 			log.Fatal(err)
 		}
+		readTimeoutMinute, err := strconv.Atoi(os.Getenv("READ_TIMEOUT_MINUTE"))
+		if err != nil {
+			log.Fatal(err)
+		}
+		writeTimeoutMinute, err := strconv.Atoi(os.Getenv("WRITE_TIMEOUT_MINUTE"))
+		if err != nil {
+			log.Fatal(err)
+		}
+
 		ConfigInstance = &Config{
-			Debug:     os.Getenv("DEBUG"),
-			ApiPrefix: os.Getenv("API_PREFIX"),
-			Port:      os.Getenv("PORT"),
+			Debug:              os.Getenv("DEBUG"),
+			ApiPrefix:          os.Getenv("API_PREFIX"),
+			HTTPAddr:           os.Getenv("HTTP_ADDR"),
+			ReadTimeoutMinute:  readTimeoutMinute,
+			WriteTimeoutMinute: writeTimeoutMinute,
 		}
 	})
 	return ConfigInstance
