@@ -5,6 +5,7 @@ component NginxGateway
 package "service" {
 component NginxService
 component EchoApp
+component PostgresService
 }
 
 User -> NginxGateway
