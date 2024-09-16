@@ -8,6 +8,7 @@ My golang training. Writing clean rest-api on echo
 
 [![Nginx][Nginx-badge]][Nginx-url]
 [![Docker][Docker-badge]][Docker-url]
+[![Postgres][Postgres-badge]][Postgres-url]
 
 ### Installation and launch
 
@@ -38,5 +39,8 @@ My golang training. Writing clean rest-api on echo
 
 [Docker-url]: https://www.docker.com
 [Docker-badge]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
+
+[Postgres-url]: https://www.postgresql.org
+[Postgres-badge]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
 
 [Current-architecture-url]: ./architecture/current_architecture.png
