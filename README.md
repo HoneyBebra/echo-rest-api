@@ -4,7 +4,7 @@ My golang training. Writing clean rest-api on echo
 
 ### Technology
 
-<a href="https://echo.labstack.com"><img height="80" src="https://cdn.labstack.com/images/echo-logo.svg"></a>
+<a href="https://echo.labstack.com"><img height="80" src="https://echo.labstack.com/img/logo-light.svg"></a>
 
 [![Nginx][Nginx-badge]][Nginx-url]
 [![Docker][Docker-badge]][Docker-url]
